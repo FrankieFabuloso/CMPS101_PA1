@@ -1,0 +1,72 @@
+
+//-----------------------------------------------------------------------------
+// List.java
+// interface for the List ADT
+//-----------------------------------------------------------------------------
+
+public interface ListInterface{
+  
+// Access functions //////////////////////////////////////
+  
+  int length(); // Returns number of elements in this list. 
+  
+  int getIndex(); // Returns the index of the cursor element in this list, or  
+  // returns -1 if the cursor element is undefined.  
+  
+  //Pre: length()>0  
+  int front(); // Returns front element in this list. 
+  
+  //Pre: length()>0   
+  int back(); // Returns back element in this List. Pre: length()>0  
+  
+  // Pre: length()>0, getIndex()>=0    
+  int getElement(); // Returns cursor element in this list.  
+  
+  boolean equals(List L); // Returns true if this List and L are the same integer  
+  // sequence. The cursor is ignored in both lists.  
+  
+// Manipulation procedures ////////////////////////////////
+  
+  void clear(); // Re-sets this List to the empty state. 
+  
+  void moveTo(int i); // If 0<=i<=length()-1, moves the cursor to the element  
+  // at index i, otherwise the cursor becomes undefined. 
+  
+  void movePrev(); // If 0<getIndex()<=length()-1, moves the cursor one step toward the  
+  // front of the list. If getIndex()==0, cursor becomes undefined.  
+  // If getIndex()==-1, cursor remains undefined. This operation is  
+  // equivalent to moveTo(getIndex()-1).  
+  
+  void moveNext(); // If 0<=getIndex()<length()-1, moves the cursor one step toward the  
+  // back of the list. If getIndex()==length()-1, cursor becomes  
+  // undefined. If index==-1, cursor remains undefined. This  
+  // operation is equivalent to moveTo(getIndex()+1). 
+  
+  void prepend(int data); // Inserts new element before front element in this List. 
+  
+  void append(int data); // Inserts new element after back element in this List.
+  
+  //Pre: length()>0, getIndex()>=0    
+  void insertBefore(int data); // Inserts new element before cursor element in this  
+  
+  // List. Pre: length()>0, getIndex()>=0   
+  void insertAfter(int data); // Inserts new element after cursor element in this  
+  
+  void deleteFront(); // Deletes the front element in this List. Pre: length()>0  
+  
+  void deleteBack(); // Deletes the back element in this List. Pre: length()>0  
+  
+  void delete(); // Deletes cursor element in this List. Cursor is undefined after this  
+  // operation. Pre: length()>0, getIndex()>=0  
+  
+  // Other methods  
+  public String toString(); // Overides Object's toString method. Creates a string  
+  // consisting of a space separated sequence of integers  
+  // with front on the left and back on the right. The  
+  // cursor is ignored.  
+  
+  List copy(); // Returns a new list representing the same integer sequence as this  
+  // list. The cursor in the new list is undefined, regardless of the  
+  // state of the cursor in this List. This List is unchanged.
+  
+}
